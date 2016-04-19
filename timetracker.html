@@ -1,0 +1,257 @@
+<!doctype html> 
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+			<title>AUI - Timetracker</title>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+			<script src="http://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.js"></script>
+			<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui.js"></script>
+			<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui-experimental.js"></script>
+			<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui-datepicker.js"></script>
+			<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.9.17/css/aui.css"/>
+			<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.9.17/css/aui-experimental.css"/>
+			<link rel="stylesheet" type="text/css" href="css/jttp.css"/>
+		</head>
+		<body >
+			<!-- <script type="text/javascript" src="https://jira7-test.everit.biz/s/a5548266925ef2be9063229c2c8377bd-T/en_UK-1cqmc2/70107/50b1fda2521820e37a0c745f166d5786/2.0.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-UK&collectorId=8f6d53ff">
+			</script> -->
+
+			<!-- For a normal page, omit all 'aui-page-' classes here -->
+			<div id="page">
+				<header id="header" role="banner">
+					<nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+						<div class="aui-header-inner">
+							<div class="aui-header-primary">
+								<h1 id="logo" class="aui-header-logo aui-header-logo-aui">
+									<a href="http://example.com/">
+										<span class="aui-header-logo-device">AUI</span>
+									</a>
+								</h1>
+								<ul class="aui-nav">
+									<li>
+										<a href="http://example.com/">Nav</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</header>
+
+
+				<section id="content" role="main">
+
+					<header class="aui-page-header">
+						<div class="aui-page-header-inner">
+							<div class="aui-page-header-image">
+								<span class="aui-avatar aui-avatar-large aui-avatar-project">
+									<span class="aui-avatar-inner">
+										<img alt="Atlassian logo" src="images/E_logo.png" />
+									</span>
+								</span>
+							</div>
+							<div class="aui-page-header-main">
+								<h1>Timetracker</h1>
+							</div>
+							<div class="aui-page-header-actions">
+								<div class="aui-buttons">
+									<button class="aui-button aui-button-subtle">
+										<span class="aui-icon aui-icon-small aui-iconfont-configure"> </span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</header>
+					
+					<div class="aui-page-panel">
+						<div class="aui-page-panel-inner">
+							<section class="aui-page-panel-content">
+
+								<div class="jttp-headline">
+									<div class="jttp-headline-progress-label">
+										Progress:
+									</div>
+									<div class="jttp-headline-progress-bar">
+										<div id="daily-progress" class="aui-progress-indicator" >
+											<span class="aui-progress-indicator-value"/>
+										</div>
+										<script type="text/javascript" >
+												AJS.progressBars.update("#daily-progress", 0.3);
+										</script>
+									</div>
+									<div class="jttp-headline-day-stepper-container">
+										<div class="jttp-headline-day-stepper-center">
+											<div class="aui-buttons" >
+												<button class="aui-button aui-button-subtle">
+													<span class="aui-icon aui-icon-small aui-iconfont-arrows-left">Previous day</span>
+												</button>
+												<button class="aui-button aui-button-subtle jttp-headline-day-stepper-open-calendar">
+													<span>Fri, January 15, 2016 &nbsp;</span>
+													<span class="aui-icon aui-icon-small aui-iconfont-calendar">Open calendar</span>
+												</button>
+												<button class="aui-button aui-button-subtle">
+													<span class="aui-icon aui-icon-small aui-iconfont-arrows-right">Next day</span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="jttp-headline-empty">&nbsp;</div>
+									<div class="jttp-clear-floating"></div>
+								</div>								
+
+								<section id="jttp-worklog">
+									<table id="jttp-worklog-table" class="aui">
+										<thead>
+											<tr>
+												<th id="jttp-worklog-issue-type">T</th>
+												<th id="jttp-worklog-issue-key">Issue</th>
+												<th id="jttp-worklog-issue-remaining">Remaining</th>
+												<th id="jttp-worklog-start">Start</th>
+												<th id="jttp-worklog-end">End</th>
+												<th id="jttp-worklog-duration">Duration</th>
+												<th id="jttp-worklog-description">Description</th>
+												<th id="jttp-worklog-actions">Actions</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<img src="http://jira.everit.biz/secure/viewavatar?size=xsmall&avatarId=11415&avatarType=issuetype" />
+												</td>
+												<td>
+													<a class="issue-link" data-issue-key="TEST-1" href="/browse/TEST-1">TEST-1</a>
+												</td>
+												<td>5h 10m</td>
+												<td>09:50</td>
+												<td>10:50</td>
+												<td>1h</td>
+												<td>Fontos meló</td>
+												<td>
+													<span class="aui-icon aui-icon-small aui-iconfont-edit">Edit</span>
+													&nbsp;
+													<span class="aui-icon aui-icon-small aui-iconfont-delete">Delete</span>
+													&nbsp;
+													<span class="aui-icon aui-icon-small aui-iconfont-copy-clipboard">Copy</span>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<img src="http://jira.everit.biz/secure/viewavatar?size=xsmall&avatarId=11400&avatarType=issuetype" />
+												</td>
+												<td>
+													<a class="issue-link" data-issue-key="NOWORK1-1" href="/browse/NOWORK-1">NOWORK-1</a>
+												</td>
+												<td class="jttp-worklog-no-remaining">0m</td>
+												<td>10:50</td>
+												<td>11:30</td>
+												<td>40m</td>
+												<td>Ebéd</td>
+												<td>
+													<span class="aui-icon aui-icon-small aui-iconfont-edit">Edit</span>
+													&nbsp;
+													<span class="aui-icon aui-icon-small aui-iconfont-delete">Delete</span>
+													&nbsp;
+													<span class="aui-icon aui-icon-small aui-iconfont-copy-clipboard">Copy</span>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<img src="http://jira.everit.biz/secure/viewavatar?size=xsmall&avatarId=11415&avatarType=issuetype" />
+												</td>
+												<td>
+													<a class="issue-link" data-issue-key="DEMO-1" href="/browse/DEMO-1">DEMO-1</a>
+												</td>
+												<td>5d 3h</td>
+												<td>11:30</td>
+												<td>14:00</td>
+												<td>2h 30m</td>
+												<td>Demo intézése</td>
+												<td>
+													<span class="aui-icon aui-icon-small aui-iconfont-edit">Edit</span>
+													&nbsp;
+													<span class="aui-icon aui-icon-small aui-iconfont-delete">Delete</span>
+													&nbsp;
+													<span class="aui-icon aui-icon-small aui-iconfont-copy-clipboard">Copy</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</section>
+								
+								<section id="jttp-worklog-summary">
+									<table id="jttp-worklog-summary-table" class="aui">
+										<thead>
+											<tr>
+												<th id="jttp-worklog-summary-type">Summary</th>
+												<th id="jttp-worklog-summary-day">Day</th>
+												<th id="jttp-worklog-summary-week">Week</th>
+												<th id="jttp-worklog-summary-month">Month</th>
+											</tr>
+										</thead>
+										</tbody>
+											<tr>
+												<td>
+													<p style="font-weight:bold;">Total</p>
+												</td>
+												<td>
+													4h 10m
+												</td>
+												<td>2d 1h 30m</td>
+												<td>3w 4h</td>
+											</tr>
+											<tr id="jttp-worklog-table-summary-real" >
+												<td>
+													<p style="font-weight:bold;">Real Work</p>
+												</td>
+												<td>
+													3h 30m
+												</td>
+												<td>2d</td>
+												<td>2w 4d 5h 10m</td>
+											</tr>
+										</tfoot>
+									</table>
+								</section>
+								<div class="jttp-clear-floating"></div>
+								
+								<section id="jttp-logwork" style="margin-top:1rem;">
+									<form class="aui" id="jttp-logwork-form">
+
+										<div class="aui-group aui-group-trio">
+												<div class="field-group">
+														<label for="start">Start Time <span class="aui-icon icon-required">(required)</span></label>
+														<input class="text short-field" type="text" name="start" value="08:00">
+														<input class="button" type="button" value="Now">
+												</div>
+												<div class="field-group">
+														<label for="start">End Time</label>
+														<input class="text short-field" type="text" name="end" value="">
+														<input class="button" type="button" value="Now">
+												</div>
+												<div class="field-group">
+														<label for="start">Duration</label>
+														<input class="text short-field" type="text" name="duration" value="">
+												</div>
+											<div style="widht:0px; height:0px; clear:both;">
+											</div>
+										</div>
+
+									</form>
+								</section>
+							</section>              
+						</div>
+					</div>          
+				</section>
+				<footer id="footer" role="contentinfo">
+					<section class="footer-body">
+						<ul>
+							<li>I &amp;hearts; AUI</li>
+						</ul>
+						<div id="footer-logo">
+							<a href="http://www.atlassian.com/" target="_blank">Atlassian</a>
+						</div>
+					</section>
+				</footer>
+			</div>
+		</body>
+	</html>

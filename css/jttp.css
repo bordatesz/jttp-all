@@ -1,0 +1,75 @@
+.jttp-clear-floating {
+	width: 0px;
+	height: 0px;
+	clear: both;
+}
+
+div.jttp-headline {
+	height: 2rem;
+}
+
+div.jttp-headline-progress-label {
+	float: left; 
+	width: 5rem; 
+	height: 100%;
+	padding-top: 0.25rem;
+}
+
+div.jttp-headline-progress-bar {
+	float: left; 
+	width: 15rem;
+	height: 100%;
+	padding-top: 0.75rem;
+}
+
+div.jttp-headline-day-stepper-container {
+	float: left;
+	width: calc(100% - 40rem);
+	min-width: 20rem;
+	height: 100%;
+	border: none;
+}
+
+div.jttp-headline-day-stepper-center {
+	display: block;
+	width: 20rem;
+	min-width: 20rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+button.jttp-headline-day-stepper-open-calendar {
+	min-width: 15rem;
+}
+
+div.jttp-headline-empty{
+	float: left; 
+	width: 20rem;
+	height: 100%;
+	padding-top: 0.25rem;
+	border: none;
+}
+
+section#jttp-worklog {
+	margin-bottom: 1rem;
+}
+
+table#jttp-worklog-table th#jttp-worklog-description {
+	width: 50%;
+	min-width: 15rem;
+}
+
+table#jttp-worklog-table th#jttp-worklog-actions {
+	width: 5rem;
+}
+
+td.jttp-worklog-no-remaining {
+	color: red;
+}
+
+section#jttp-worklog-summary {
+	float: right;
+	width: 75%;
+	max-width: 30rem;
+	margin-bottom: 1rem;
+}
