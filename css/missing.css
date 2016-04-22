@@ -1,0 +1,46 @@
+
+/* custom reporting classes */
+
+.missing-search-criteria-container {
+    padding: 5px 20px 5px 20px;
+    border-top: 1px solid #ccc; 
+}
+
+.inline-calendar {
+    display: inline;
+    margin-right: 10px;
+}
+
+
+/* from Atlassian AUI */
+
+.aui-group {
+    margin-top: 10px;
+}
+
+.message {
+    margin-bottom: 1rem;
+}
+
+.missing-worklog-table tbody tr:hover {
+   background-color: #f5f5f5;
+}
+
+table.aui > thead > tr > th{
+    text-align: center;
+    color: #707070;
+}
+
+table.aui > tbody > tr > td{
+   text-align: center;
+}
+
+.container {
+    width: 20%;
+    min-width: 20rem;
+    max-width: 30rem;
+}
+
+
+
+

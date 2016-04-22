@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
-			<title>AUI - Timetracker</title>
+			<title>Timetracker</title>
 			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 			<script src="http://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.js"></script>
 			<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui.js"></script>
@@ -44,9 +44,9 @@
 					<header class="aui-page-header">
 						<div class="aui-page-header-inner">
 							<div class="aui-page-header-image">
-								<span class="aui-avatar aui-avatar-large aui-avatar-project">
+								<span class="aui-avatar aui-avatar-large">
 									<span class="aui-avatar-inner">
-										<img alt="Atlassian logo" src="images/E_logo.png" />
+										<img alt="Everit Timetracker logo" src="images/jttp144.png" />
 									</span>
 								</span>
 							</div>
@@ -68,17 +68,19 @@
 							<section class="aui-page-panel-content">
 
 								<div class="jttp-headline">
-									<div class="jttp-headline-progress-label">
-										Progress:
-									</div>
-									<div class="jttp-headline-progress-bar">
-										<div id="daily-progress" class="aui-progress-indicator" >
-											<span class="aui-progress-indicator-value"/>
-										</div>
-										<script type="text/javascript" >
-												AJS.progressBars.update("#daily-progress", 0.3);
-										</script>
-									</div>
+                                    <div class="progress"> <!-- New feature -->
+                                        <div class="jttp-headline-progress-number">
+										  3/8
+									    </div>
+                                        <div class="jttp-headline-progress-bar">
+                                            <div id="daily-progress" class="aui-progress-indicator" >
+                                                <span class="aui-progress-indicator-value"/>
+                                            </div>
+                                            <script type="text/javascript" >
+                                                    AJS.progressBars.update("#daily-progress", 0.3);
+                                            </script>
+                                        </div>
+                                    </div>                                    
 									<div class="jttp-headline-day-stepper-container">
 										<div class="jttp-headline-day-stepper-center">
 											<div class="aui-buttons" >
@@ -100,7 +102,7 @@
 								</div>								
 
 								<section id="jttp-worklog">
-									<table id="jttp-worklog-table" class="aui">
+									<table id="jttp-worklog-table" class="aui jttp-worklog-table">
 										<thead>
 											<tr>
 												<th id="jttp-worklog-issue-type">T</th>
@@ -191,7 +193,7 @@
 										</tbody>
 											<tr>
 												<td>
-													<p style="font-weight:bold;">Total</p>
+													<p class="jttp-row-header">Total</p>
 												</td>
 												<td>
 													4h 10m
@@ -201,7 +203,7 @@
 											</tr>
 											<tr id="jttp-worklog-table-summary-real" >
 												<td>
-													<p style="font-weight:bold;">Real Work</p>
+													<p class="jttp-row-header">Real Work</p>
 												</td>
 												<td>
 													3h 30m

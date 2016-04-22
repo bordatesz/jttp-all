@@ -1,0 +1,170 @@
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <title>Missing Days Report</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.js"></script>
+	<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui.js"></script>
+	<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui-experimental.js"></script>
+	<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui-datepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.9.17/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.9.17/css/aui-experimental.css"/>
+    <link rel="stylesheet" href="css/missing.css" media="all">    
+    <script src="js/chart.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    </head>
+    <body >
+    <div id="page">
+        
+      <!-- This is an imitation of the JIRA header, don't include it in the real code -->  
+      <header id="header" role="banner">
+        <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+          <div class="aui-header-inner">
+            <div class="aui-header-primary">
+              <h1 id="logo" class="aui-header-logo aui-header-logo-aui"><a href="http://example.com/"><span class="aui-header-logo-device">AUI</span></a></h1>
+              <ul class="aui-nav">
+                <li><a href="http://example.com/">Nav</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- ---- -->  
+        
+        <section id="content" role="main">	  
+        <header class="aui-page-header">
+            <div class="aui-page-header-inner">
+                <div class="aui-page-header-image">
+                    <span class="aui-avatar aui-avatar-large">
+                        <span class="aui-avatar-inner">
+                            <img alt="Everit Timetracker logo" src="images/jttp144.png">
+                        </span>
+                    </span>
+                </div>
+                <div class="aui-page-header-main">
+                    <h1>Missing Days Report</h1>
+                </div>                
+            </div>
+        </header>
+            
+        <!-- Search criterias -->
+        <div class="missing-search-criteria-container">
+            <form action="" class="aui top-label reporting-form" id="reporting-form" method="get">
+			     <div class="form-body">
+                     <div class="aui-group">
+                        <div class="aui-item search-wrap">
+                            <div class="date-search-container">
+                                <div class="search-criteria-container">
+                                    <div class="search-criteria">
+                                        <div class="from-date inline-calendar">
+                                            <input class="text medium-field datepicker-input" placeholder="From" type="text" value="" id="dateFrom" name="dateFrom" tabindex="1">
+                                                <a href="#" title="Select a date">
+                                                    <span class="aui-icon aui-icon-small aui-iconfont-calendar">Select a date</span>
+                                                </a>
+                                        </div>
+                                        <div class="to-date inline-calendar">
+                                            <input class="text medium-field datepicker-input" placeholder="To" type="text" value="" id="dateTo" name="dateTo" tabindex="2">
+                                                <a href="#" title="Select a date">
+                                                    <span class="aui-icon aui-icon-small aui-iconfont-calendar">Select a date</span>
+                                                </a>
+                                        </div>                                        
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </div>
+                    </div>
+                     <div class="aui-group">
+                        <div class="aui-item">
+                            <div class="checkbox">
+                                <input class="checkbox" type="checkbox" name="hour" id="hour" value="check 8 h">
+                                <label for="cbOne">	Check the worklog spent time is equal or greater to the time is expected a day.</label>
+                            </div>
+                            <div class="checkbox">
+                                <input class="checkbox" type="checkbox" name="nonworking" id="nonworking" value="non-working not count">
+                                <label for="cbOne">Excluding the non-working issues.</label>
+                            </div>                  
+                        </div>
+                    </div>
+                     <div class="aui-group">
+                        <div class="aui-item">                            
+                            <button id="search" tabindex="3" class="aui-button aui-button-primary">Create Report</button> <!-- Submit the search form -->                  
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="formType" value="basic"
+            </form>
+        </div>
+        <!-- ---- -->
+            
+        <div class="aui-page-panel">
+          <div class="aui-page-panel-inner">
+            <section class="aui-page-panel-content">
+                <div class="container">
+                    <div class="table-content">
+                        <div id="statistics-message" class="message">
+	                       The number of the queried dates is: 258
+                        </div>
+                        <div id="results-wrap">
+                            <table id="missing-worklog-table" class="aui missing-worklog-table">
+										<thead>
+											<tr>
+												<th>Dates</th>
+												<th>Hours</th> <!-- New feature, feedback request -->
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<a class="issue-link" data-issue-key="NOWORK1-1" href="/browse/NOWORK-1">21/Apr/17</a>
+												</td>
+                                                <td>7</td>												
+											</tr>
+											<tr>
+                                                <td>
+												    <a class="issue-link" data-issue-key="NOWORK1-1" href="/browse/NOWORK-1">21/Apr/17</a>
+                                                </td>
+												<td>3</td>
+											</tr>
+										</tbody>
+                            </table> 
+                        </div>
+                        <div class="aui-group aui-group-split count-pagination missing-count">
+                            <div class="aui-item">
+                                <span class="results-count-text">
+                                    <span class="results-count results-count-start">1</span> –
+                                    <span class="results-count results-count-end">50</span> of 
+                                    <span class="results-count results-count-total results-count-link">100</span>
+                                </span>
+                            </div>
+                            <div class="aui-item">
+                                <div class="pagination" data-displayable-total="100"> 
+                                    <strong title="Issues 1 - 50">1</strong> 
+                                    <a href="/issues/?jql=&amp;startIndex=50" data-page="2" data-start-index="50" title="Issues 51 - 100">2</a>
+                                    <a href="/issues/?jql=&amp;startIndex=50" data-start-index="50" class="icon icon-next" title="Go to page 2 of 59">
+                                        <span class="aui-icon aui-icon-small aui-iconfont-arrows-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </section>              
+          </div>
+        </div>          
+      </section>
+      <footer id="footer" role="contentinfo">
+        <section class="footer-body">
+          <ul>
+            <li>I &amp;hearts; AUI</li>
+          </ul>
+          <div id="footer-logo"><a href="http://www.atlassian.com/" target="_blank">Atlassian</a></div>
+        </section>
+      </footer>
+    </div>
+    <script type="text/javascript" src="http://localhost:8080/s/c3f59fee2dcec063881f862018815b82-T/hu_HU-thmygr/71003/b6b48b2829824b869586ac216d119363/2.0.11/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=hu-HU&collectorId=cbc827f1">
+    </script>
+    </body>
+</html>

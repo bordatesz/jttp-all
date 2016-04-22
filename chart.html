@@ -1,0 +1,132 @@
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <title>Chart Report</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.js"></script>
+	<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui.js"></script>
+	<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui-experimental.js"></script>
+	<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui-datepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.9.17/css/aui.css"/>
+	<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.9.17/css/aui-experimental.css"/>
+    <link rel="stylesheet" href="css/chart.css" media="all">    
+    <script src="js/chart.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    </head>
+    <body >
+    <div id="page">
+        
+      <!-- This is an imitation of the JIRA header, don't include it in the real code -->  
+      <header id="header" role="banner">
+        <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+          <div class="aui-header-inner">
+            <div class="aui-header-primary">
+              <h1 id="logo" class="aui-header-logo aui-header-logo-aui"><a href="http://example.com/"><span class="aui-header-logo-device">AUI</span></a></h1>
+              <ul class="aui-nav">
+                <li><a href="http://example.com/">Nav</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- ---- -->  
+        
+        <section id="content" role="main">	  
+        <header class="aui-page-header">
+            <div class="aui-page-header-inner">
+                <div class="aui-page-header-image">
+                    <span class="aui-avatar aui-avatar-large">
+                        <span class="aui-avatar-inner">
+                            <img alt="Everit Timetracker logo" src="images/jttp144.png">
+                        </span>
+                    </span>
+                </div>
+                <div class="aui-page-header-main">
+                    <h1>Chart Report</h1>
+                </div>                
+            </div>
+        </header>
+            
+        <!-- Search criterias -->
+        <div class="chart-search-criteria-container">
+            <form action="" class="aui top-label reporting-form" id="reporting-form" method="get">
+			     <div class="form-body">
+                     <div class="aui-group">
+                        <div class="aui-item search-wrap">
+                            <div class="date-search-container">
+                                <div class="search-criteria-container">
+                                    <div class="search-criteria">
+                                        <div class="from-date inline-calendar">
+                                            <input class="text medium-field datepicker-input" placeholder="From" type="text" value="" id="dateFrom" name="dateFrom" tabindex="1">
+                                                <a href="#" title="Select a date">
+                                                    <span class="aui-icon aui-icon-small aui-iconfont-calendar">Select a date</span>
+                                                </a>
+                                        </div>
+                                        <div class="to-date inline-calendar">
+                                            <input class="text medium-field datepicker-input" placeholder="To" type="text" value="" id="dateTo" name="dateTo" tabindex="2">
+                                                <a href="#" title="Select a date">
+                                                    <span class="aui-icon aui-icon-small aui-iconfont-calendar">Select a date</span>
+                                                </a>
+                                        </div>                                        
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </div>
+                    </div>
+                     <div class="aui-group">
+                        <div class="aui-item search-wrap">
+                            <div class="user-search-container">
+                                <div class="search-criteria-container">
+                                    <div class="search-criteria">
+                                        <div class="from-date inline-calendar">
+                                            <input class="text" placeholder="User" type="text" value="" id="userPicker-single-select">
+                                        </div>
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aui-group">
+                        <div class="aui-item">                            
+                            <button id="search" tabindex="3" class="aui-button aui-button-primary">Create Report</button> <!-- Submit the search form -->                  
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="formType" value="basic"
+            </form>
+        </div>
+        <!-- ---- -->
+            
+        <div class="aui-page-panel">
+          <div class="aui-page-panel-inner">
+            <section class="aui-page-panel-content">                
+                <div id="dashboard">
+                    <div class="aui-group">
+                        <div id="control_div" class="aui-item control_div">
+                            Control comes here
+                        </div>
+                        <div id="chart_div" class="aui-item chart_div">
+                            Chart comes here
+                        </div>
+                    </div>
+                </div>
+            </section>              
+          </div>
+        </div>          
+      </section>
+      <footer id="footer" role="contentinfo">
+        <section class="footer-body">
+          <ul>
+            <li>I &amp;hearts; AUI</li>
+          </ul>
+          <div id="footer-logo"><a href="http://www.atlassian.com/" target="_blank">Atlassian</a></div>
+        </section>
+      </footer>
+    </div>
+    <script type="text/javascript" src="http://localhost:8080/s/c3f59fee2dcec063881f862018815b82-T/hu_HU-thmygr/71003/b6b48b2829824b869586ac216d119363/2.0.11/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=hu-HU&collectorId=cbc827f1">
+    </script>
+    </body>
+</html>

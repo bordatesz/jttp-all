@@ -1,0 +1,30 @@
+
+/* custom reporting classes */
+
+.chart-search-criteria-container {
+    padding: 5px 20px 5px 20px;
+    border-top: 1px solid #ccc; 
+}
+
+.inline-calendar {
+    display: inline;
+    margin-right: 10px;
+}
+
+
+/* from Atlassian AUI */
+
+.aui-group {
+    margin-top: 10px;
+}
+
+.control_div {	
+	width: 20%;
+    /*min and max width?*/
+}
+
+.chart_div {	
+	width: 80%;
+}
+
+
