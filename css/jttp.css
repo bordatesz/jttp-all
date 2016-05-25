@@ -1,7 +1,9 @@
-.jttp-clear-floating {
-	width: 0px;
-	height: 0px;
-	clear: both;
+@media screen and (max-width: 768px) {
+  section#jttp-worklog-summary {
+    visibility: hidden;
+    clear: both;
+    display: none;
+  }
 }
 
 div.jttp-headline {
