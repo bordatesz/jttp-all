@@ -1,10 +1,11 @@
-@media screen and (max-width: 768px) {
-  section#jttp-worklog-summary {
-    visibility: hidden;
-    clear: both;
-    display: none;
-  }
+
+/* Common format */
+
+table.aui > thead > tr > th{
+    color: #707070;
 }
+
+/* Headline alignment */
 
 div.jttp-headline {
 	height: 2rem;
@@ -54,16 +55,23 @@ div.jttp-headline-empty{
 	border: none;
 }
 
+/* Worklog table */
+
 section#jttp-worklog {
 	margin-bottom: 1rem;
 }
 
+#jttp-worklog-table tbody tr:hover {
+   background-color: #f5f5f5;
+}
+
 table#jttp-worklog-table th#jttp-worklog-description {
-	width: 50%;
 	min-width: 15rem;
+	width: 50%;
 }
 
 table#jttp-worklog-table th#jttp-worklog-actions {
+	min-width: 5rem;
 	width: 5rem;
 }
 
@@ -71,15 +79,57 @@ td.jttp-worklog-no-remaining {
 	color: red;
 }
 
-section#jttp-worklog-summary {
-	float: right;
-	width: 75%;
-	max-width: 30rem;
-	margin-bottom: 1rem;
+/* TODO: It would be nice, if the user can turn row colring on or off in the settings. In this case, the hover coloring will be disabled. */
+/*
+table#jttp-worklog-table  tbody tr:nth-child(even) {
+    background: #FFF;
 }
 
-table.aui > thead > tr > th{
-    color: #707070;
+table#jttp-worklog-table tbody tr:nth-child(odd) {
+    background: #f5f5f5
+}
+*/
+
+
+/* Bottom group */
+
+div#jttp-bottom-group {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-j;
+}
+
+div#jttp-bottom-group > div {
+	display:block;
+}
+
+/* Log work form */
+
+#jttp-logwork {
+	min-width: 550px;
+	width: 550px;
+}
+
+div#jttp-worklog-time {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+/* Calendar */
+
+section#jttp-calendar {
+	min-width: 250px;
+	width: 250px;
+	background: lightgray;
+}
+
+/* Worklog summary table */
+
+section#jttp-worklog-summary  {
+	width: calc(100% - 800px); /* 100% minus width of calendar and log work form */
 }
 
 .jttp-row-header {
@@ -87,15 +137,13 @@ table.aui > thead > tr > th{
     font-weight:bold;
 }
 
-.jttp-worklog-table tbody tr:hover {
-   background-color: #f5f5f5;
+/* Hide summary if necessary */
+@media screen and (max-width: 1200px) {
+	
+  section#jttp-worklog-summary {
+    display: none;
+  }
+  
+  
 }
 
-/* TODO: It would be nice, if the user can turn row colring on or off in the settings. In this case, the hover coloring will be disabled. */
-/*table.aui.jttp-worklog-table> tbody > tr:nth-child(even) {
-    background: #FFF;
-}
-
-table.aui.jttp-worklog-table> tbody > tr:nth-child(odd) {
-    background: #f5f5f5
-}*/
