@@ -6,12 +6,12 @@
 			<title>Timetracker</title>
 			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 			<script src="http://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.js"></script>
-			<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui.js"></script>
-			<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui-experimental.js"></script>
-			<script src="http://aui-cdn.atlassian.com/aui-adg/5.9.17/js/aui-datepicker.js"></script>
+			<script src="http://aui-cdn.atlassian.com/aui-adg/5.6.7/js/aui.js"></script>
+			<script src="http://aui-cdn.atlassian.com/aui-adg/5.6.7/js/aui-experimental.js"></script>
+			<script src="http://aui-cdn.atlassian.com/aui-adg/5.6.7/js/aui-datepicker.js"></script>
             <script src="js/jttp.js"></script>
-			<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.9.17/css/aui.css"/>
-			<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.9.17/css/aui-experimental.css"/>
+			<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.6.7/css/aui.css"/>
+			<link rel="stylesheet" type="text/css" href="http://aui-cdn.atlassian.com/aui-adg/5.6.7/css/aui-experimental.css"/>
 			<link rel="stylesheet" type="text/css" href="css/jttp.css"/>
 		</head>
 		<body >
@@ -66,8 +66,8 @@
 					
 					<div class="aui-page-panel">
 						<div class="aui-page-panel-inner">
+												
 							<section class="aui-page-panel-content">
-
 								<div class="jttp-headline">
                                     <div class="progress"> <!-- New feature -->
                                         <div class="jttp-headline-progress-number">
@@ -78,7 +78,7 @@
                                                 <span class="aui-progress-indicator-value"/>
                                             </div>
                                             <script type="text/javascript" >
-                                                    AJS.progressBars.update("#daily-progress", 0.3);
+                                                AJS.progressBars.update("#daily-progress", 0.3);
                                             </script>
                                         </div>
                                     </div>                                    
@@ -101,9 +101,12 @@
 									<div class="jttp-headline-empty">&nbsp;</div>
 									<div class="jttp-clear-floating"></div>
 								</div>								
+						</div>
 
-								<section id="jttp-worklog">
-									<table id="jttp-worklog-table" class="aui jttp-worklog-table">
+
+						<div class="aui-page-panel-inner">
+								<section class="aui-page-panel-content" id="jttp-worklog">
+									<table id="jttp-worklog-table" class="aui">
 										<thead>
 											<tr>
 												<th id="jttp-worklog-issue-type">T</th>
@@ -180,72 +183,108 @@
 										</tbody>
 									</table>
 								</section>
-								<!-- The summary is hidden in smart screen -->
-								<section id="jttp-worklog-summary">
-									<div id="summarymodule" class="module toggle-wrap expanded">
-                                                <div id="summarymodule_header" class="mod-header">
-                                                    <h2 class="class="toggle-title>Summary</h2>
-                                                </div>
-                                                <div class="mod-content">
-                                                    <table id="jttp-worklog-summary-table" class="aui">
-                                                        <thead>
-                                                            <tr>
-                                                                <th id="jttp-worklog-summary-type"></th>
-                                                                <th id="jttp-worklog-summary-day">Day</th>
-                                                                <th id="jttp-worklog-summary-week">Week</th>
-                                                                <th id="jttp-worklog-summary-month">Month</th>
-                                                            </tr>
-                                                        </thead>
-                                                        </tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <p class="jttp-row-header">Total</p>
-                                                                </td>
-                                                                <td>
-                                                                    4h 10m
-                                                                </td>
-                                                                <td>2d 1h 30m</td>
-                                                                <td>3w 4h</td>
-                                                            </tr>
-                                                            <tr id="jttp-worklog-table-summary-real" >
-                                                                <td>
-                                                                    <p class="jttp-row-header">Real Work</p>
-                                                                </td>
-                                                                <td>
-                                                                    3h 30m
-                                                                </td>
-                                                                <td>2d</td>
-                                                                <td>2w 4d 5h 10m</td>
-                                                            </tr>
-                                                        </tfoot>
-                                                    </table>
-                                                </div>
-                                            </div>
-								</section>
-								<div class="jttp-clear-floating"></div>
 								
-								<section id="jttp-logwork" style="margin-top:1rem;">
-									<form class="aui" id="jttp-logwork-form">
-										<div class="aui-group aui-group-trio">
-												<div class="field-group">
-                                                    <label for="start">Start Time <span class="aui-icon icon-required">(required)</span></label>
-                                                    <input id="start_time" class="text short-field" type="text" name="start">
-                                                    <input class="button" type="button" value="Now">
-                                                  </div>
-                                                  <div class="field-group">
-                                                    <label for="start">End Time</label>
-                                                    <input id="end_time" class="text short-field" type="text" name="end">
-                                                    <input class="button" type="button" value="Now">
-                                                  </div>
-                                                  <div class="field-group">
-                                                    <label for="start">Duration</label>
-                                                    <input id="duration" class="text short-field" type="text" name="duration">
-                                                  </div>
-											<div style="widht:0px; height:0px; clear:both;">
+						</div>
+
+						
+						<div class="aui-page-panel-inner" id="jttp-bottom-group">						
+
+								<section  class="aui-page-panel-content" id="jttp-logwork" style="margin-top:1rem;">
+									<!-- Worklog submit form -->
+									<form class="aui top-label" id="jttp-logwork-form">
+										
+											<div class="buttons-container">
+												<div class="buttons">
+													<input class="aui-button " type="submit" value="Change date for all" id="jttp-logwork-change-date-all" name="lw_chgdate">
+												</div>
 											</div>
-										</div>
+
+											<div id="jttp-worklog-time" class="long-field">
+										
+												<div class="field-group" >
+													<label for="lw_start">Start Time <span class="aui-icon icon-required">(required)</span></label>
+													<input id="jttp-logwork-time-start" class="text short-field" type="text" name="lw_start">
+													<input class="button" type="button" value="Now">													
+												</div>
+												
+												<div class="field-group">
+													<label for="lw_end">End Time</label>
+													<input id="jttp-logwork-time-end" class="text short-field" type="text" name="lw_end">
+													<input class="button" type="button" value="Now">
+												</div>
+
+												<div class="field-group">
+													<label for="lw_duration">Duration</label>
+													<input id="jttp-logwork-time-end" class="text short-field" type="text" name="lw_duration">
+												</div>
+
+											</div>
+												
+											<div class="field-group">
+												<label for="lw_issue">Issue <span class="aui-icon icon-required">(required)</span></label>
+												<textarea id="jttp-logwork-issue" class="textarea long-field" name="lw_issue"></textarea>
+											</div>
+
+											<div class="field-group">
+												<label for="lw_comment">Worklog comment <span class="aui-icon icon-required">(required)</span></label>
+												<textarea id="jttp-logwork-comment" rows="3" class="textarea long-field" name="lw_comment"></textarea>
+											</div>
+
+											<div class="buttons-container">
+												<div class="buttons">
+													<input class="aui-button aui-button-primary" type="submit" value="Save" id="jttp-logwork-save" name="lw_save">
+													<input class="aui-button aui-button-subtle" type="reset" value="Cancel" id="jttp-logwork-cancel" name="lw_cancel">
+												</div>
+											</div>
+
+										
 									</form>
 								</section>
+
+								<section  class="aui-page-panel-content" id="jttp-calendar" style="margin-top:1rem;">
+									<!-- Caendar -->
+									Calendar
+								</section>
+								
+								<section class="aui-page-panel-content" id="jttp-worklog-summary">
+									<!-- Summary -->
+									<div class="module toggle-wrap expanded">
+											<div class="mod-header">
+												<h2 class="class="toggle-title>Summary</h2>
+											</div>
+											<div class="mod-content">
+												<table id="jttp-worklog-summary-table" class="aui">
+													<thead>
+														<tr>
+															<th id="jttp-worklog-summary-type"></th>
+															<th id="jttp-worklog-summary-day">Day</th>
+															<th id="jttp-worklog-summary-week">Week</th>
+															<th id="jttp-worklog-summary-month">Month</th>
+														</tr>
+													</thead>
+													</tbody>
+														<tr id="jttp-worklog-table-summary-total" >
+															<td>
+																<p class="jttp-row-header">Total</p>
+															</td>
+															<td>4h 10m</td>
+															<td>2d 1h 30m</td>
+															<td>3w 4h</td>
+														</tr>
+														<tr id="jttp-worklog-table-summary-real" >
+															<td>
+																<p class="jttp-row-header">Real Work</p>
+															</td>
+															<td>3h 30m</td>
+															<td>2d</td>
+															<td>2w 4d 5h 10m</td>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+                                    </div>
+								</section>
+								
 							</section>              
 						</div>
 					</div>          
@@ -253,7 +292,7 @@
 				<footer id="footer" role="contentinfo">
 					<section class="footer-body">
 						<ul>
-							<li>I &amp;hearts; AUI</li>
+							<li>I &hearts; AUI</li>
 						</ul>
 						<div id="footer-logo">
 							<a href="http://www.atlassian.com/" target="_blank">Atlassian</a>
