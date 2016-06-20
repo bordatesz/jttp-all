@@ -75,18 +75,34 @@
                     <span class="aui-progress-indicator-value" />
                   </div>
                   <script type="text/javascript">
-                    // TODO extract to JS file and function, the only call here with the proper value 
-                    var jttp_progress_value = 0.3;
+                    // TODO extract to JS file and function, the only call here with the proper value
+                    // Do this custom coloring only if the user can enable/disable it.
+                    // If user can't enable or disable custom coloring, then use deafult progress indicator: https://docs.atlassian.com/aui/latest/docs/progress-indicator.html
+                    var jttp_progress_value = 0.1;
                     var jttp_progress_red = '#d04437';
+                    var jttp_progress_green = '#14892c';
+                    var jttp_progress_yellow = '#f6c342';
                     AJS.progressBars.update(
                         "#jttp-headline-progress-indicator",
                         jttp_progress_value);
-                    if (jttp_progress_value < 0.4) {
+                    if (jttp_progress_value <= 0.2) {
                       AJS
                           .$(
                               '#jttp-headline-progress-indicator .aui-progress-indicator-value')
                           .css("background-color",
                               jttp_progress_red);
+                    } else if (jttp_progress_value >= 1.0){
+                       AJS
+                          .$(
+                              '#jttp-headline-progress-indicator .aui-progress-indicator-value')
+                          .css("background-color",
+                              jttp_progress_green); 
+                    } else {
+                      AJS
+                          .$(
+                              '#jttp-headline-progress-indicator .aui-progress-indicator-value')
+                          .css("background-color",
+                              jttp_progress_yellow);  
                     }
                   </script>
                 </div>
@@ -193,24 +209,24 @@
             </section>
           </div>
 
-          <div id="jttp-bottom-group">
+          <div class="jttp-bottom-group" id="jttp-bottom-group">
 
             <section class="aui-page-panel-content" id="jttp-logwork-fields">
 
 
               <div id="jttp-logwork-time" class="full-width-field">
-
                 <div class="field-group">
                   <label for="lw_start">Start Time <span class="aui-icon icon-required">(required)</span></label>
-                  <input id="jttp-logwork-time-start" class="text short-field" type="text"
-                    name="lw_start" required="required" maxlength="5"
+                    <!-- TODO: add the required="required" attribute to the inpuptfield if the submit fails -->
+                    <input id="jttp-logwork-time-start" class="text short-field" type="text"
+                    name="lw_start" maxlength="5" tabindex="1"
                     pattern="^([01][0-9]|2[0-3]):[0-5][0-9]$" title="hh:mm">
                   <input id="jttp-logwork-time-start-now" class="button" type="button" value="Now">
                 </div>
 
                 <div class="field-group">
                   <label for="lw_end">End Time</label> <input id="jttp-logwork-time-end"
-                    class="text short-field" type="text" name="lw_end" maxlength="5"
+                    class="text short-field" type="text" name="lw_end" maxlength="5" tabindex="2"
                     pattern="^([01][0-9]|2[0-3]):[0-5][0-9]$" title="empty or hh:mm"> 
                   <input id="jttp-logwork-time-end-now" class="button" type="button" value="Now">
                 </div>
@@ -218,7 +234,7 @@
                 <div class="field-group">
                   <label for="lw_duration">Duration</label> 
                   <input id="jttp-logwork-time-duration" class="text short-field" type="text"
-                    name="lw_duration" maxlength="5"
+                    name="lw_duration" maxlength="5" tabindex="2"
                     pattern="^([01][0-9]|2[0-3]):[0-5][0-9]$" title="empty or hh:mm">
                 </div>
 
@@ -226,19 +242,19 @@
 
               <div class="field-group">
                 <label for="lw_issue">Issue <span class="aui-icon icon-required">(required)</span></label>
-                <textarea id="jttp-logwork-issue" class="textarea full-width-field" name="lw_issue"></textarea>
+                <textarea id="jttp-logwork-issue" class="textarea full-width-field" name="lw_issue" tabindex="3"></textarea>
               </div>
 
               <div class="field-group">
-                <label for="lw_comment">Worklog comment <span class="aui-icon icon-required">(required)</span></label>
-                <textarea id="jttp-logwork-comment" rows="3" required="required"
-                  class="textarea full-width-field" name="lw_comment"></textarea>
+                <label for="lw_comment">Worklog comment </label>
+                <textarea id="jttp-logwork-comment" rows="3"
+                  class="textarea full-width-field" name="lw_comment" tabindex="4"></textarea>
               </div>
 
               <div class="buttons-container">
                 <div class="buttons">
                   <input class="aui-button aui-button-primary" type="submit" value="Save"
-                    id="jttp-logwork-save" name="lw_save"> 
+                    id="jttp-logwork-save" name="lw_save" tabindex="5"> 
                   <input class="aui-button aui-button-subtle" type="reset" value="Cancel"
                     id="jttp-logwork-cancel" name="lw_cancel">
                 </div>
@@ -248,7 +264,7 @@
 
             <section class="aui-page-panel-content" id="jttp-logwork-calendar">
               <!-- Calendar -->
-              Calendar
+                <div style="background-color: blue; width: 245.8px; height: 207.61px; margin: 50px 0px 50px 0px;"></div>
             </section>
 
             <section class="aui-page-panel-content" id="jttp-worklog-summary">
