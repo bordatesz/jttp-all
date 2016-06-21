@@ -109,14 +109,14 @@
               </div>
               <div id="jttp-headline-day-stepper-container">
                 <div class="aui-buttons">
-                  <button id="jttp-headline-day-prev" class="aui-button aui-button-subtle">
+                  <button id="jttp-headline-day-prev" class="aui-button aui-button-subtle" title="Previous day">
                     <span class="aui-icon aui-icon-small aui-iconfont-arrows-left">Previous day</span>
                   </button>
-                  <button id="jttp-headline-day-calendar" class="aui-button aui-button-subtle">
+                  <button id="jttp-headline-day-calendar" class="aui-button aui-button-subtle" title="Pick a date">
                     <span>Fri, January 15, 2016 &nbsp;</span> 
                     <span class="aui-icon aui-icon-small aui-iconfont-calendar">Open calendar</span>
                   </button>
-                  <button id="jttp-headline-day-next" class="aui-button aui-button-subtle">
+                  <button id="jttp-headline-day-next" class="aui-button aui-button-subtle" title="Next day">
                     <span class="aui-icon aui-icon-small aui-iconfont-arrows-right">Next day</span>
                   </button>
                 </div>
@@ -125,6 +125,7 @@
             </div>
         </div>
 
+        <!-- Dont forget the "No data to display" message -->    
         <div class="aui-page-panel-inner">
           <section class="aui-page-panel-content" id="jttp-worklog">
             <table id="jttp-worklog-table" class="aui">
@@ -145,48 +146,48 @@
                   <td><img
                     src="http://jira.everit.biz/secure/viewavatar?size=xsmall&avatarId=11415&avatarType=issuetype" />
                   </td>
-                  <td><a class="issue-link" data-issue-key="TEST-1" href="/browse/TEST-1">TEST-1</a>
+                  <td><a class="issue-link" data-issue-key="TEST-1" href="/browse/TEST-1" title="Isseu neve">TEST-1</a>
                   </td>
-                  <td>5h 10m</td>
+                  <td title="Nem kerekített érték">5h 10m</td>
                   <td>09:50</td>
                   <td>10:50</td>
                   <td>1h</td>
                   <td>Fontos meló</td>
-                  <td><span class="aui-icon aui-icon-small aui-iconfont-edit">Edit</span>
-                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-delete">Delete</span>
-                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-copy-clipboard">Copy</span>
+                  <td><span class="aui-icon aui-icon-small aui-iconfont-edit" title="Edit">Edit</span>
+                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-delete" title="Delete">Delete</span>
+                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-copy-clipboard" title="Copy">Copy</span>
                   </td>
                 </tr>
                 <tr>
                   <td><img
                     src="http://jira.everit.biz/secure/viewavatar?size=xsmall&avatarId=11400&avatarType=issuetype" />
                   </td>
-                  <td><a class="issue-link" data-issue-key="NOWORK1-1" href="/browse/NOWORK-1">NOWORK-1</a>
+                  <td><a class="issue-link" data-issue-key="NOWORK1-1" href="/browse/NOWORK-1" title="Isseu neve">NOWORK-1</a>
                   </td>
-                  <td class="jttp-worklog-no-remaining">0m</td>
+                  <td class="jttp-worklog-no-remaining" title="Nem kerekített érték">0m</td>
                   <td>10:50</td>
                   <td>11:30</td>
                   <td>40m</td>
                   <td>Ebéd</td>
-                  <td><span class="aui-icon aui-icon-small aui-iconfont-edit">Edit</span>
-                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-delete">Delete</span>
-                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-copy-clipboard">Copy</span>
+                  <td><span class="aui-icon aui-icon-small aui-iconfont-edit" title="Edit">Edit</span>
+                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-delete" title="Delete">Delete</span>
+                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-copy-clipboard" title="Copy">Copy</span>
                   </td>
                 </tr>
                 <tr>
                   <td><img
                     src="http://jira.everit.biz/secure/viewavatar?size=xsmall&avatarId=11415&avatarType=issuetype" />
                   </td>
-                  <td><a class="issue-link" data-issue-key="DEMO-1" href="/browse/DEMO-1">DEMO-1</a>
+                  <td><a class="issue-link" data-issue-key="DEMO-1" href="/browse/DEMO-1" title="Isseu neve">DEMO-1</a>
                   </td>
-                  <td>5d 3h</td>
+                  <td title="Nem kerekített érték">5d 3h</td>
                   <td>11:30</td>
                   <td>14:00</td>
                   <td>2h 30m</td>
                   <td>Demo intézése</td>
-                  <td><span class="aui-icon aui-icon-small aui-iconfont-edit">Edit</span>
-                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-delete">Delete</span>
-                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-copy-clipboard">Copy</span>
+                  <td><span class="aui-icon aui-icon-small aui-iconfont-edit" title="Edit">Edit</span>
+                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-delete" title="Delete">Delete</span>
+                    &nbsp; <span class="aui-icon aui-icon-small aui-iconfont-copy-clipboard" title="Copy">Copy</span>
                   </td>
                 </tr>
               </tbody>
@@ -203,7 +204,7 @@
               <div class="buttons-container">
                 <div class="buttons">
                   <input class="aui-button " type="submit" value="Change date for all"
-                    id="jttp-logwork-change-date-all" name="lw_chgdate">
+                    id="jttp-logwork-change-date-all" name="lw_chgdate" title="Move all the worklogs to a particular day">
                 </div>
               </div>
             </section>
@@ -246,7 +247,7 @@
               </div>
 
               <div class="field-group">
-                <label for="lw_comment">Worklog comment </label>
+                <label for="lw_comment">Work Description </label>
                 <textarea id="jttp-logwork-comment" rows="3"
                   class="textarea full-width-field" name="lw_comment" tabindex="4"></textarea>
               </div>
@@ -264,7 +265,7 @@
 
             <section class="aui-page-panel-content" id="jttp-logwork-calendar">
               <!-- Calendar -->
-                <div style="background-color: blue; width: 245.8px; height: 207.61px; margin: 50px 0px 50px 0px;"></div>
+                <div style="background-color: lightblue; width: 245.8px; height: 207.61px; margin: 50px 0px 50px 0px;"></div>
             </section>
 
             <section class="aui-page-panel-content" id="jttp-worklog-summary">
